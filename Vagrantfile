@@ -14,6 +14,7 @@ def packages_debianoid(user)
     apt dist-upgrade -y
     # for building borgbackup and dependencies:
     apt install -y libssl-dev libacl1-dev liblz4-dev libzstd-dev libfuse-dev fuse pkg-config
+    groupadd fuse
     usermod -a -G fuse #{user}
     chgrp fuse /dev/fuse
     chmod 666 /dev/fuse
